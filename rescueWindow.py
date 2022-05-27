@@ -1,3 +1,4 @@
+from os import WIFCONTINUED
 import images
 #Librería para los elementos de la GUI.
 import tkinter as tk  	
@@ -12,20 +13,47 @@ class rescueWindow(object):
         self.Ventana.title("R4Ns0mW4r3 d3cr1pt0R 2.0")	#Título de la ventana.
         #self.Ventana.overrideredirect(1) #Esconde la barra superior.
         self.Ventana.attributes('-toolwindow', True) #No permite modificar atributos de la ventana.
-        self.Ventana.geometry("1000x750+300+50")	#Tamaño de la ventana.
-        self.Ventana.configure(bg = "Red")		#Color de fondo.
+        self.Ventana.geometry("1000x568")	#Tamaño de la ventana.
+
+        #Configuración de renglones y columnas.
+        self.Ventana.columnconfigure(1, weight=1)
+        self.Ventana.columnconfigure(3, pad=7)
+        self.Ventana.rowconfigure(3, weight=1)
+        self.Ventana.rowconfigure(5, pad=7)
+
+        #Imagen de fondo
+        img = tk.PhotoImage(file="images/fondo.png")
+        label = tk.Label(self.Ventana,image=img)
+        label.place(x=0, y=0)
+
+
+        #Imagen de craneo
+        imgCran = tk.PhotoImage(file="images/craneo.png")
+        labelCran = tk.Label(self.Ventana,
+                            image=imgCran,
+                            bg="#fff",
+                            borderwidth=0)
+        labelCran.grid(row = 2, column = 1)
 
         #Etiqueta de encabezado.
-        encabezado = tk.Label(self.Ventana, text="Ooops, your files have been encrypted! xD", font="Verdana 18 bold")
-        #Configuración de color de fondo y de la fuente de etiqueta.
-        encabezado.config(bg="Red",fg="white")
+        encabezado = tk.Label(self.Ventana, 
+                            text="Ooops, tus archivos importantes han sido cifrados! xD", 
+                            font="Verdana 18 bold",
+                            bg="#fff",
+                            fg="#00fb33",
+                            pady=20,
+                            borderwidth=0)
         #Añadiendo el elemento a la ventana.
-        encabezado.grid(row = 0, column = 1) 
+        encabezado.grid(row = 0, column = 2) 
 
-        #Imagen de candado
-        imgCandado = tk.PhotoImage(file="images\candado.png")
-        etqCandado = tk.Label(image = imgCandado)
+        #Etiqueta de tiempo.
+        tiempo = tk.Label(self.Ventana, text="Tiempo restante", 
+                            font="Verdana 18 bold",
+                            bg="#fff",
+                            fg="#00fb33",
+                            borderwidth=0)
         #Añadiendo el elemento a la ventana.
-        etqCandado.grid(row = 0, column = 0)
+        tiempo.grid(row = 3, column = 1)
         
+        self.Ventana.wm_attributes("-transparentcolor", 'white') #Línea para dar transparencia.
         self.Ventana.mainloop()		#Muestra la ventana.

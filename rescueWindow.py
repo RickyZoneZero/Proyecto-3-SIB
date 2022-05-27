@@ -1,4 +1,3 @@
-from os import WIFCONTINUED
 import images
 #Librería para los elementos de la GUI.
 import tkinter as tk  	
@@ -13,7 +12,7 @@ class rescueWindow(object):
         self.Ventana.title("R4Ns0mW4r3 d3cr1pt0R 2.0")	#Título de la ventana.
         #self.Ventana.overrideredirect(1) #Esconde la barra superior.
         self.Ventana.attributes('-toolwindow', True) #No permite modificar atributos de la ventana.
-        self.Ventana.geometry("1000x568")	#Tamaño de la ventana.
+        self.Ventana.geometry("1000x568+500+250")	#Tamaño de la ventana.
 
         #Configuración de renglones y columnas.
         self.Ventana.columnconfigure(1, weight=1)

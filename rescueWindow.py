@@ -1,4 +1,8 @@
+#Programa que muestra la ventana de rescate.
+
+#Paquete de otra carpeta.
 import images
+
 #Librería para los elementos de la GUI.
 import tkinter as tk  	
 
@@ -53,6 +57,30 @@ class rescueWindow(object):
                             borderwidth=0)
         #Añadiendo el elemento a la ventana.
         tiempo.grid(row = 3, column = 1)
+
+        #Mensaje
+        mensaje = """Tus archivos importantes han sido cifrados. Entre ellos se encuentran documentos, fotos y videos comprometadores que te podrían generar problemas. 
+que hacer?
+Tienes el tiempo marcado en la ventana para poder pagar $5000 dólares en bitcoin. 
+Puedes pagar dando click en el botón inferior, que te redigirá a los datos de pago.
+
+Date prisa! :v, porque el tiempo corre y el juego acaba de comenzar."""
+
+        #Área de texto
+        area = tk.Text(self.Ventana, height=13, width=65)
+        area.tag_configure('color',
+                    foreground='#00fb33',
+                    font=('Verdana', 12, 'bold'))
+        area.insert(tk.END, mensaje, 'color')
+        area.grid(row = 3, column = 2)
+
+        #Botón para pagar
+        btnPagar = tk.Button(self.Ventana,text="Pagar",
+                            width = 25,
+                            bg = "black",
+                            fg = "yellow",
+                            font = "Verdana 12 bold")
+        btnPagar.grid(row = 4, column = 2)
         
         self.Ventana.wm_attributes("-transparentcolor", 'white') #Línea para dar transparencia.
         self.Ventana.mainloop()		#Muestra la ventana.

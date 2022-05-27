@@ -1,3 +1,6 @@
+#Programa que lista los directorios contenidos en C:\
+
+#Librería de rutas de sistemas orientadas a objetos.
 import pathlib
 
 ejemplo_dir = 'C:/' #Muestra una lista de archivos que contiene la unidad C

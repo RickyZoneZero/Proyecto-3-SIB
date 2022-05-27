@@ -1,5 +1,7 @@
-import backgroundScreen
+import rescueWindow
 #Programa que contiene la función principal para ejecutar el proyecto.
 
 def main():
-    backgroundScreen
+    rescueWindow.rescueWindow() 
+
+main()

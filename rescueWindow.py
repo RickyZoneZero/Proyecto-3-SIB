@@ -64,7 +64,7 @@ class rescueWindow(object):
         #Timer
         hours = 0 #Inicializando temporizador.
         minutes = 0
-        seconds = 20
+        seconds = 5
 
         #Definiendo los segundos de las cifras de horas y minutos
         s_horas = hours * 3600

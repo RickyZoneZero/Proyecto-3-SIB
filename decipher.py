@@ -1,3 +1,5 @@
+#Programa que descifra los archivos a partir de una ubicación.
+
 from cryptography.fernet import Fernet
 import os
 
@@ -13,8 +15,8 @@ def decrypt(items, key):
         with open(item, 'wb') as file:
             file.write(decrypted_data)
 
-if __name__ == '__main__':
-    path_to_encrypt = 'C:\\Users\\marci\\Downloads\\practicas\\scriptsP\\secretos'
+def descifrar():
+    path_to_encrypt = '\secrets'
     #os.remove(path_to_encrypt+'\\'+'readme.txt')
 
     items = os.listdir(path_to_encrypt)

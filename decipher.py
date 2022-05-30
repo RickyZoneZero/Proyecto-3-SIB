@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 import os
 
 def cargar_key():
-    return open('key.key', 'rb').read()
+    return open('prueba/key.key', 'rb').read()
 
 def decrypt(items, key):
     f = Fernet(key)
@@ -16,7 +16,7 @@ def decrypt(items, key):
             file.write(decrypted_data)
 
 def descifrar():
-    path_to_encrypt = '\secrets'
+    path_to_encrypt = r'C:\Users\enriq\Desktop\Proyecto_3_SIB\secrets'
     #os.remove(path_to_encrypt+'\\'+'readme.txt')
 
     items = os.listdir(path_to_encrypt)
